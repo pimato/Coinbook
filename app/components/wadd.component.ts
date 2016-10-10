@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {LocalStorageService} from 'ng2-webstorage';
+
 
 @Component({
   moduleId: module.id,
@@ -7,8 +9,12 @@ import { Component } from '@angular/core';
 })
 export class WalletAddComponent {
 
+  wallet:any;
 
-  saveWallet(){
-    console.log(document.getElementById('wallet-input').innerHTML);
+  constructor(private storage:LocalStorageService) {}
+
+  saveValue() {
+    this.storage.store('boundValue', this.wallet);
+    console.log(this.wallet + " saved into local storage");
   }
 }

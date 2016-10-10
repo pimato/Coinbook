@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { StorageSync, StorageStrategy } from 'angular2-storage-sync';
 
 
 @Component({
