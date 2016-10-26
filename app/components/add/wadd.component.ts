@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {LocalStorageService} from 'ng2-webstorage';
 import {Wallet} from '../wallet.model';
 
+var stringify = require('json-stringify-safe');
+
 
 @Component({
   moduleId: module.id,
@@ -11,26 +13,28 @@ import {Wallet} from '../wallet.model';
 export class WalletAddComponent {
 
   wallet:Wallet;
-  key:any;
+  key:string;
 
   constructor(private storage:LocalStorageService) {}
 
   saveValue() {
-    this.wallet = new Wallet();
-    var portfolio:Wallet[] = this.storage.retrieve('portfolio');
+    var portfolio:Wallet[] = JSON.parse(this.storage.retrieve('portfolio'));
 
     if(portfolio == null){
       portfolio = [];
     }
-
+    this.wallet = new Wallet();
     this.wallet.name = 'Wallet';
     this.wallet.publicKey = this.key;
     this.wallet.balance = 120;
     this.wallet.value = 0;
+
+    console.log("New Wallet added: "+this.wallet.publicKey);
     portfolio.push(this.wallet);
 
-
-    this.storage.store('portfolio', portfolio);
+    var json = stringify(portfolio, null, 2);
+    this.storage.store('portfolio', json);
+    this.wallet = new Wallet();
     console.log(portfolio + " saved into local storage");
   }
 

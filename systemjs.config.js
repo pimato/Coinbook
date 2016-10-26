@@ -30,7 +30,8 @@
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'ng2-webstorage': 'node_modules/ng2-webstorage',
       'ethereum-units': 'npm:ethereum-units',
-      'bigdecimal': 'npm:bigdecimal/lib/bigdecimal.js'
+      'bigdecimal': 'npm:bigdecimal/lib/bigdecimal.js',
+      'json-stringify-safe': 'npm:json-stringify-safe'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -52,7 +53,12 @@
       'ethereum-units': {
         main: './index.js',
         defaultExtension: 'js'
+      },
+      'json-stringify-safe': {
+        main: './stringify.js',
+        defaultExtension: 'js'
       }
+
     }
   });
 })(this);

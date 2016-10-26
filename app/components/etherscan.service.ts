@@ -1,6 +1,7 @@
-import {Injectable, Provider} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Wallet} from "./wallet.model";
 
 @Injectable()
 export class EtherscanService{
@@ -15,8 +16,17 @@ export class EtherscanService{
 
   }
 
-  getBalance(address:string){
-    var url = 'https://api.etherscan.io/api?module=account&action=balance&address='+address+'&tag=latest&apikey='+ this.API_KEY;
+  getBalances(wallets:Wallet[]){
+    var address:string;
+    var temp ="";
+    for(var i = 0; i < wallets.length; i++){
+      temp = temp + wallets[i].publicKey + ",";
+      console.log(temp);
+    }
+    temp = temp.replace(/,(\s+)?$/, '');
+    console.log(temp);
+
+    var url = 'https://api.etherscan.io/api?module=account&action=balancemulti&address='+temp+'&tag=latest&apikey='+ this.API_KEY;
        return this._http.get(url)
          .map(res => res.json());
   }
