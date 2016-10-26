@@ -4,6 +4,7 @@
  */
 (function (global) {
   System.config({
+    'node_modules/web3/dist/web3.js': { format: 'global' },
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/'
@@ -27,8 +28,9 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
-      'ng2-webstorage': 'node_modules/ng2-webstorage'
-
+      'ng2-webstorage': 'node_modules/ng2-webstorage',
+      'ethereum-units': 'npm:ethereum-units',
+      'bigdecimal': 'npm:bigdecimal/lib/bigdecimal.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -36,10 +38,21 @@
         main: './main.js',
         defaultExtension: 'js'
       },
-      rxjs: {defaultExtension: 'js'},
-      'angular-in-memory-web-api': {main: './index.js', defaultExtension: 'js'},
-      'ng2-webstorage': {main: 'bundles/core.umd.js', defaultExtension: 'js'}
-
+      rxjs: {
+        defaultExtension: 'js'
+      },
+      'angular-in-memory-web-api': {
+        main: './index.js',
+        defaultExtension: 'js'
+      },
+      'ng2-webstorage': {
+        main: 'bundles/core.umd.js',
+        defaultExtension: 'js'
+      },
+      'ethereum-units': {
+        main: './index.js',
+        defaultExtension: 'js'
+      }
     }
   });
 })(this);

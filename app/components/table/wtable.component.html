@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Wallet</th>
+    <th>Balance</th>
+    <th>Value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let wallet of wallets">
+    <td>{{ wallet.publicKey }}</td>
+    <td>{{ wallet.balance }}</td>
+    <td>{{ wallet.value }}</td>
+  </tr>
+  </tbody>
+</table>
