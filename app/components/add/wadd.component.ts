@@ -12,30 +12,26 @@ var stringify = require('json-stringify-safe');
 })
 export class WalletAddComponent {
 
-  wallet:Wallet;
   key:string;
 
   constructor(private storage:LocalStorageService) {}
 
   saveValue() {
+
+    //get wallets from chrome storage
     var portfolio:Wallet[] = JSON.parse(this.storage.retrieve('portfolio'));
 
+    //check if the chrome storage does not have any wallets
     if(portfolio == null){
       portfolio = [];
     }
-    this.wallet = new Wallet();
-    this.wallet.name = 'Wallet';
-    this.wallet.publicKey = this.key;
-    this.wallet.balance = 120;
-    this.wallet.value = 0;
+    //push the new wallet into the storage
+    portfolio.push(new Wallet({name: 'Wallet', publicKey: this.key, balance: 120, value: 0}));
 
-    console.log("New Wallet added: "+this.wallet.publicKey);
-    portfolio.push(this.wallet);
+    //change the database to a readable json object
+    var database = stringify(portfolio, null, 2);
 
-    var json = stringify(portfolio, null, 2);
-    this.storage.store('portfolio', json);
-    this.wallet = new Wallet();
-    console.log(portfolio + " saved into local storage");
+    this.storage.store('portfolio', database);
   }
 
   clearStorage(){

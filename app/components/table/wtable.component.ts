@@ -18,24 +18,17 @@ export class WalletTableComponent implements OnInit{
   constructor(private _ethService:EtherscanService, private storage:LocalStorageService) {}
 
   ngOnInit() {
-
+    //restore wallets
     this.wallets = JSON.parse(this.storage.retrieve('portfolio'));
-  //  console.log('Wallet received:' + this.wallets[0].balance);
-    /*
-    console.log(this.wallets);
-    var ethBalance = ethunits.convert(87674950000000000,"wei","ether");
-    var w = new Wallet();
-    w.balance = ethBalance;
-    console.log("Balance :" + w.balance);
-*/
 
+    //subscribe to changes for example if a new wallet is getting added
     this.storage.observe('portfolio')
       .subscribe((value:any) => {
         this.wallets = JSON.parse(value);
         this.fetchBalance();
       });
 
-
+    //update balance
     if(this.wallets != null){
     this.fetchBalance();
     }
