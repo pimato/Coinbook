@@ -31,7 +31,8 @@
       'ng2-webstorage': 'node_modules/ng2-webstorage',
       'ethereum-units': 'npm:ethereum-units',
       'bigdecimal': 'npm:bigdecimal/lib/bigdecimal.js',
-      'json-stringify-safe': 'npm:json-stringify-safe'
+      'json-stringify-safe': 'npm:json-stringify-safe',
+      'wampy': 'npm:wampy'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -56,6 +57,10 @@
       },
       'json-stringify-safe': {
         main: './stringify.js',
+        defaultExtension: 'js'
+      },
+      'wampy': {
+        main: './build/wampy.min.js',
         defaultExtension: 'js'
       }
 
