@@ -4,7 +4,7 @@
  */
 (function (global) {
   System.config({
-    'node_modules/web3/dist/web3.js': { format: 'global' },
+    noGlobals: true,
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/'
@@ -26,13 +26,17 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
 
       // other libraries
+      'jquery': 'npm:jquery/dist/',
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'ng2-webstorage': 'node_modules/ng2-webstorage',
       'ethereum-units': 'npm:ethereum-units',
       'bigdecimal': 'npm:bigdecimal/lib/bigdecimal.js',
       'json-stringify-safe': 'npm:json-stringify-safe',
-      'wampy': 'npm:wampy'
+      'wampy': 'npm:wampy',
+      'moment': 'node_modules/moment/moment.js',
+      '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

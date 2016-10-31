@@ -1,3 +1,9 @@
+
+
+<div class="container">
+  <div class="row">
+    <button type="button" class="btn btn-default" (click)="open(content)" >Add Wallet</button>
+    <button type="button" class="btn btn-default" (click)="clearStorage()" >Clear Storage</button>
 <table class="table table-hover">
   <thead>
   <tr>
@@ -7,6 +13,11 @@
   </tr>
   </thead>
   <tbody>
+  <tr>
+    <td>Ether</td>
+    <td>120</td>
+    <td>12323</td>
+  </tr>
   <tr *ngFor="let wallet of wallets">
     <td>{{ wallet.publicKey }}</td>
     <td>{{ wallet.balance }}</td>
@@ -14,3 +25,23 @@
   </tr>
   </tbody>
 </table>
+
+<template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add a Wallet</h4>
+  </div>
+  <div class="modal-body">
+    <input type="text" [(ngModel)]="key" name="key" class="form-control" id="wallet-input" placeholder="Address">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="c('cancel')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="c('add')">Add</button>
+  </div>
+</template>
+
+  </div>
+</div>
+<template ngbModalContainer></template>
