@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalStorageService} from 'ng2-webstorage';
 import {EtherscanService} from '../services/etherscan.service';
 import 'rxjs/add/operator/map';

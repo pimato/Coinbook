@@ -26,7 +26,6 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
 
       // other libraries
-      'jquery': 'npm:jquery/dist/',
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'ng2-webstorage': 'node_modules/ng2-webstorage',
@@ -36,6 +35,7 @@
       'wampy': 'npm:wampy',
       'moment': 'node_modules/moment/moment.js',
       '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+      'etherscan-api': 'npm:etherscan-api'
 
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -65,6 +65,10 @@
       },
       'wampy': {
         main: './build/wampy.min.js',
+        defaultExtension: 'js'
+      },
+      'etherscan-api': {
+        main: './index.js',
         defaultExtension: 'js'
       }
 

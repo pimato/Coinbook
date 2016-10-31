@@ -1,10 +1,8 @@
 
-
-<div class="container">
   <div class="row">
     <button type="button" class="btn btn-default" (click)="open(content)" >Add Wallet</button>
     <button type="button" class="btn btn-default" (click)="clearStorage()" >Clear Storage</button>
-<table class="table table-hover">
+    <table class="table table-hover">
   <thead>
   <tr>
     <th>Wallet</th>
@@ -13,11 +11,6 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Ether</td>
-    <td>120</td>
-    <td>12323</td>
-  </tr>
   <tr *ngFor="let wallet of wallets">
     <td>{{ wallet.publicKey }}</td>
     <td>{{ wallet.balance }}</td>
@@ -43,5 +36,7 @@
 </template>
 
   </div>
-</div>
-<template ngbModalContainer></template>
+  <div class="row">
+    <button type="button" class="btn btn-default" (click)="clearStorage()" >Settings</button>
+
+  </div>
