@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { WalletTableComponent } from './components/table/wtable.component';
-import {AboutComponent} from "./components/about/about.component";
+import {SettingsComponent} from "./components/about/settings.component";
 
 
 const routes: Routes = [
-  { path:'', component:WalletTableComponent },
-  { path:'about', component:AboutComponent},
+  { path:'portfolio', component:WalletTableComponent },
+  { path:'settings', component:SettingsComponent},
+  { path:'', redirectTo: '/portfolio', pathMatch: 'full'},
 ];
 
 @NgModule({

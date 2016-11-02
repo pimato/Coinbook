@@ -12,7 +12,7 @@ import {Ng2Webstorage} from 'ng2-webstorage';
 //components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WalletTableComponent } from './components/table/wtable.component';
-import { AboutComponent} from './components/about/about.component';
+import { SettingsComponent} from './components/about/settings.component';
 
 //services
 import {EtherscanService} from "./components/services/etherscan.service";
@@ -21,7 +21,7 @@ import {EtherscanService} from "./components/services/etherscan.service";
 
 @NgModule({
   imports: [ BrowserModule, HttpModule, FormsModule, NgbModule.forRoot() ,Ng2Webstorage, AppRoutingModule],
-  declarations: [ AppComponent, NavbarComponent, WalletTableComponent, AboutComponent, routedComponents],
+  declarations: [ AppComponent, NavbarComponent, WalletTableComponent, SettingsComponent, routedComponents],
   providers: [EtherscanService],
   bootstrap: [ AppComponent ]
 })
